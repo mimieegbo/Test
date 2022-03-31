@@ -1,19 +1,22 @@
 from numpy import linspace
 
-def crossing_2_graphs():
 
+def crossing_2_graphs():
     N = int(input('Enter the number of points on graph: '))
     x = linspace(-4, 4, N)
     f = x
-    g = x**2
+    g = x ** 2
     epsilon = float(input('Enter the allowable difference: '))
-    guess = abs(f -g)
+    guess = abs(f - g)
+    result = []
     for i in range(len(x)):
         if guess[i] < epsilon:
-            print(x[i], 'is a value where', f, 'crosses', g)
-        if x[i] == x[-1]:
-            break
+            result.append(x[i])
+
+    if not result:
+        print('f does not cross g')
     else:
-        print(f, 'does not cross', g)
+        print('f crosses g at these values', result)
+
 
 crossing_2_graphs()
