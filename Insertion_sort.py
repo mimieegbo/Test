@@ -1,3 +1,8 @@
+from randomise import randomise
+
+print('and the name of this process is', __name__)
+
+
 def insert_sort(ls):
     for i in range(1, len(ls)):
         x = i - 1
@@ -8,5 +13,18 @@ def insert_sort(ls):
             x -= 1  # make x represent the current prev element
     return ls
 
-ls = [10, 1, 11, 2, 9, 20, 2]
-print(insert_sort(ls))
+
+testcases = [randomise([1, 3, 35, 5, 10, -1, 10]) for i in range(10)]
+print(testcases)
+for ls in testcases:
+    print(insert_sort(ls))
+
+print('hello')
+
+print('hello')
+
+print('hello')
+
+print('hello')
+
+print('hello')
