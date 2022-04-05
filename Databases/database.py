@@ -13,7 +13,7 @@ class Database:
 
 
 class Table:
-    def __init__(self, table_url):
+    def __init__(self, table_url, columns):
         self.url = table_url
 
     def __str__(self):
@@ -30,3 +30,5 @@ class Table:
             three_lines.append(file.readline())
 
         return three_lines
+
+    def co
