@@ -40,16 +40,18 @@ class Collection:
         file = open(table_location, 'w+')
         file.write('datatype = ' + datatype)
         file.close()
+        self.tables.add(name)
 
         return Table(table_location, datatype)
 
     def showTables(self):
-        for i in self.tables:
-            print()
+        return list(map(lambda tables: table.name, self.tables))
 
 class Table:
-    def __init__(self, name, columns):
+    def __init__(self, name, datatype, columns):
         self.name = name
+        self.datatype = datatype
+        self.location =
 
     def exposee(self):
         file = open(self.name, 'r')
