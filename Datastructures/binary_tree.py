@@ -1,9 +1,10 @@
 class TreeNode:
 
-    def __init__(self, value, left=None, right=None):
+    def __init__(self, value, left=None, right=None, parent=None):
         self.value = value
         self.left = left
         self.right = right
+        self.parent = parent
 
 
 class Tree:
@@ -49,7 +50,16 @@ class Tree:
 class BST(Tree):
     def __init__(self, root):
         # super().__init__(self, root)
+        self.difference = None
+        self.isbalanced = None
         self.root = convert_to_bst(Tree(root))
+        self.__height, self.__h_left = None, None
+        self.update()
+
+    def update(self):
+        self.__height, self.__h_left, self.__h_right = self.height()
+        self.difference = self.__h_left - self.__h_right
+        self.isbalanced = self.difference in range(-1, 1)
 
     def insert(self, value):
 
@@ -70,6 +80,9 @@ class BST(Tree):
                 insert_(root.right, value, root)
 
         insert_(self.root, value, None)
+        self.update()
+        if not self.isbalanced:
+            self.balance()
 
     def min_and_max(self):
 
@@ -97,13 +110,31 @@ class BST(Tree):
                 return 0
             return 1 + max(h(root.left), h(root.right))
 
-        return h(root)
+        return h(root), h(root.left), h(root.right)
 
-    def balance(self, isLeft=True):
-        temp = focus = self.root.left if isLeft else self.root.right
+    def balance(self):
+        focus = self.root
+        gotoLeft = self.difference > 0
+        parent_list = []
+        cond1 = focus.left and gotoLeft
+        cond2 = focus.right and not gotoLeft
+        print('cond1', cond1, 'cond2', cond2)
+        while (focus.left and gotoLeft) or (focus.right and not gotoLeft):
+            parent_list.append(focus)
+            focus = (gotoLeft and focus.left) or (not gotoLeft and focus.right)
 
-        while focus.left:
-            pass
+        while not self.isbalanced:
+            print('runs')
+            # rearranging focus
+            focus = Tree(focus).toBST()
+            # getting the parent
+            parent = parent_list.pop()
+            # knowing where to attach to the parent
+            if parent.left:
+                parent.right = focus
+            else:
+                parent.left = focus
+            self.display()
 
 
 def check_node(t, value):
@@ -152,22 +183,18 @@ def convert_to_bst(Tree):
 
 def part():
     t_list = TreeNode(1, TreeNode(4, TreeNode(3)), TreeNode(2, TreeNode(8), TreeNode(7)))
-    t = Tree(t_list)
+    t = BST(t_list)
+
     t.display()
 
-    for item in t:
-        print(item)
+    things = [10, 2, 7, 100, 50, 70, 90]
 
-    Tree(t[2]).display()
+    for thing in things:
+        print('inserted', thing)
+        t.insert(thing)
+        t.toBST()
+
+    t.display()
 
 
-t_list = TreeNode(1, TreeNode(4, TreeNode(2)), TreeNode(2, TreeNode(8), TreeNode(7)))
-t = BST(t_list)
-
-things = [10, 2, 7, 100, 50, 70, 90]
-
-for thing in things:
-    t.insert(thing)
-    t.toBST()
-
-t.display()
+part()
