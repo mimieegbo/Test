@@ -23,12 +23,12 @@ def DFS(graph, start, end, path, shortest, toPrint=False):
     if start == end:
         return path
     for node in graph.childrenOf(start):
-        if node not in path:  # avoid cycles
-            if shortest == None or len(path) < len(shortest):
-                newPath = DFS(graph, node, end, path, shortest,
-                              toPrint)
-                if newPath != None:
-                    shortest = newPath
+        if node not in path and (shortest is None or len(path) < len(shortest)):
+            # avoid cycles
+            newPath = DFS(graph, node, end, path, shortest,
+                          toPrint)
+            if newPath is not None:
+                shortest = newPath
     return shortest
 
 
