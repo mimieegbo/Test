@@ -28,10 +28,14 @@ nav div {
     float: right;
 }
 
-div#logo {
+div.logo {
+    background: url('./images/pexels-magda.jpg') no-repeat fixed center;
+    padding: 20px;
+    width: 100px;
+    height: 20x;
     font-weight: bold;
     color: cyan;
-    background: black;
+    float: left;
 }
 
 
