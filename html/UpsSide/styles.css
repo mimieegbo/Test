@@ -1,0 +1,38 @@
+
+* {
+  box-sizing: border-box;
+  font-family: monospace;
+}
+
+body {
+    background: url('./images/wallpaper_one.jpg') no-repeat fixed center;
+    margin: 0;
+}
+
+nav a {
+    display: inline-block;
+    color: white;
+    padding: 20px 14px;
+    text-decoration: none;
+    transition: 0.2s;
+    border-bottom: 0 solid;
+    float: left;
+}
+
+nav a:hover {
+    color: yellow;
+    border-bottom: 0.8px solid cyan;
+}
+
+nav div {
+    float: right;
+}
+
+div#logo {
+    font-weight: bold;
+    color: cyan;
+    background: black;
+}
+
+
+
