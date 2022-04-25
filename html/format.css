@@ -1,0 +1,88 @@
+@font-face {
+    font-family: Vanguardcf;
+    src: url('./Fonts/vanguardcf.otf');
+}
+
+div.navigation {
+    padding: 16px 5%;
+}
+
+div.navigation nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+div.nav-menu {
+    display: flex;
+    flex-direction: row;
+   /* justify-container: center; */
+    align-items: baseline;
+}
+
+div.nav-menu div {
+    margin-left: 32px;
+    font-family: Vanguardcf ,sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: white;
+    font-weight: 900;
+}
+div#first {
+    display: flex;
+    color: white;
+    background: black;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+body {
+        background: url('./images/study.jpg') repeat;
+        background-position: center;
+        background-size: cover;
+        color: #f9f7f7;
+        font-size: 16px;
+        line-height: 1.2;
+        font-weight: 300;
+}
+
+p#main {
+   color: white;
+   text-transform: capitalize
+   font-size: 1000px;
+}
+
+p#other {
+   color: white;
+   text-transform: capitalize
+   font-size: 100px;
+}
+
+span#home {
+    color: white;
+    background: black;
+    text-transform: uppercase;
+}
+
+span#events {
+    color: white;
+    background: cyan;
+    text-transform: uppercase;
+}
+
+span#partners {
+    color: white;
+    background: yellow;
+    text-transform: uppercase;
+}
+
+span#about {
+    color: white;
+    background: red;
+    text-transform: uppercase;
+}
+
+span#contact {
+    color: white;
+    background: black;
+    text-transform: uppercase;
+}

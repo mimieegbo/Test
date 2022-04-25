@@ -1,0 +1,36 @@
+h1 {
+    color: yellow;
+    text-decoration: underline;
+}
+
+#special_tag {
+    font-size: 20px;
+    color: red;
+    font-weight: bold;
+}
+
+p#bquote{
+    color: black;
+    background-color: cyan;
+    font-size: 30px;
+    margin: 50px;
+    opacity: 0.33;
+}
+
+h1 {
+    background: black;
+    color: white;
+}
+
+span#thespan {
+    color: white;
+    background: red;
+}
+
+div {
+    color: red;
+    background: cyan;.;[-
+    width: 400px;
+   /* border: 2px solid black; */
+    /* border-style: dotted; */
+}

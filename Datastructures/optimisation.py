@@ -18,6 +18,9 @@ class Item(object):
                  + ', ' + str(self.weight) + '>'
         return result
 
+    def __repr__(self):
+        return self.__str__()
+
 
 def value(item):
     return item.getValue()
@@ -133,4 +136,26 @@ def bestValue(maxWeight=20):
         print(item)
 
 
-bestValue()
+null = [Item('', 0, 0)]
+
+
+def decision_tree(items, maxWeight):
+    def d(chosen, availableItems):
+        if not availableItems:
+            return chosen
+        ch = chosen + [availableItems[0]]
+        left_weight = Weight(ch)
+        left = d(ch, availableItems[1:]) if left_weight <= maxWeight else null
+        right = d(chosen, availableItems[1:])
+
+        return max([left, right], key=Value)
+
+    decision = d([], items)
+
+    print(f'Total value of items taken is {Value(decision)}')
+    for item in decision:
+        print(item)
+
+
+# bestValue()
+decision_tree(buildItems(), 20)

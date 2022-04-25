@@ -5,7 +5,11 @@
 }
 
 body {
-    background: url('./images/wallpaper_one.jpg') no-repeat fixed center;
+    background-image: url("./images/pexels-magda.jpg");
+    background-color: #cccccc;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     margin: 0;
 }
 
@@ -17,6 +21,8 @@ nav a {
     transition: 0.2s;
     border-bottom: 0 solid;
     float: left;
+    font-weight: bolder;
+
 }
 
 nav a:hover {
@@ -29,7 +35,6 @@ nav div {
 }
 
 div.logo {
-    background: url('./images/pexels-magda.jpg') no-repeat fixed center;
     padding: 20px;
     width: 100px;
     height: 20x;
